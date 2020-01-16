@@ -1,5 +1,4 @@
 from django import forms
-
 from .models import Post
 
 class PostForm(forms.ModelForm):
@@ -10,3 +9,8 @@ class PostForm(forms.ModelForm):
             'author',
             'body',
         ]
+
+class RawPostForm(forms.Form):
+    title = forms.CharField()
+    author = forms.CharField()
+    description = forms.CharField()
