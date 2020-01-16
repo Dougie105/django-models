@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h1>This is the HomePageView From The Template</h1>
+
+<p>
+    {{ my_list }}, {{my_number}}
+</p>
+
+<h2>Just a generic list</h2>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+
+<h2>This is a for loop in lists.html</h2>
+<ul>
+{%for my_sub_item in my_longer_list%}
+    <li>{{ my_sub_item }}</li>
+{%endfor%}
+</ul>
+
+<!-- below is the use of a filter abc|add:22 -->
+
+<h2>This is an if statement</h2>
+<ul>
+{% for abc in my_longer_list %}
+    {% if abc == 987 %}
+        <li>{{ forloop.counter }} - {{ abc|add:22 }}</li>
+    {% elif abc == 'abc' %}
+        <li>This is not the network</li>
+    {% else %}
+        <li>{{ forloop.counter }} - {{ abc }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+{%endblock content%}
+
